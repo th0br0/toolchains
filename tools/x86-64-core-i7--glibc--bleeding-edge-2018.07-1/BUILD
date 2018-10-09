@@ -1,5 +1,5 @@
 cc_toolchain_suite(
-    name = "toolchain",
+    name = "cc_toolchain",
     # target_cpu | compiler
     toolchains = {
         "x86_64|gcc": "bootlin-x86_64",
@@ -60,4 +60,21 @@ cc_toolchain(
     supports_param_files = 1,
     visibility = ["//visibility:public"],
 )
+
+toolchain(
+    name = "toolchain",
+    exec_compatible_with = [
+        "@bazel_tools//platforms:linux",
+        "@bazel_tools//platforms:x86_64",
+        "@bazel_tools//tools/cpp:clang"
+        #"//constraints:jessie",
+    ],
+    target_compatible_with = [
+        "@bazel_tools//platforms:linux",
+        "@bazel_tools//platforms:x86_64",
+    ],
+    toolchain = ":bootlin-x86_64",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+)
+
 
