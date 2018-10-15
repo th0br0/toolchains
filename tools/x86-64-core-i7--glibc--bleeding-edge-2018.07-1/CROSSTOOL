@@ -1,9 +1,9 @@
 major_version: "1"
 minor_version: "0"
-default_target_cpu: "x86_64"
+default_target_cpu: "k8"
 
 default_toolchain {
-  cpu: "x86_64"
+  cpu: "k8"
   toolchain_identifier: "bootlin_x86_64_toolchain"
 }
 
@@ -22,8 +22,8 @@ toolchain {
   supports_start_end_lib: false
   supports_thin_archives: true
   target_libc: "glibc_2.27.57"
-  target_cpu: "x86_64"
-  target_system_name: "x86_64"
+  target_cpu: "k8"
+  target_system_name: "k8"
   toolchain_identifier: "bootlin_x86_64_toolchain"
 
   tool_path { name: "ar" path: "x86_64-linux/x86_64-linux-ar" }

@@ -19,7 +19,7 @@ armv7:
   gcc_version: "8.1.0"
 
 x86_64:
-  cpu_type: "x86_64"
+  cpu_type: "k8"
   tarball_url: "https://toolchains.bootlin.com/downloads/releases/toolchains/x86-64-core-i7/tarballs/x86-64-core-i7--glibc--bleeding-edge-2018.07-1.tar.bz2"
   tool_perfix: "x86_64-linux"
   strip_perfix: "x86-64-core-i7--glibc--bleeding-edge-2018.07-1"
@@ -37,3 +37,4 @@ i686:
   toolchain_id: "bootlin_i686_toolchain"
   glibc_version: "glibc_2.27.57"
   gcc_version: "8.1.0"
+

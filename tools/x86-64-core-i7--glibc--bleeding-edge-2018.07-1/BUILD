@@ -1,8 +1,9 @@
 cc_toolchain_suite(
-    name = "cc_toolchain",
+    name = "toolchain",
     # target_cpu | compiler
     toolchains = {
-        "x86_64|gcc": "bootlin-x86_64",
+        "k8|gcc": ":bootlin-k8",
+	"k8": ":bootlin-k8",
     },
 )
 
@@ -45,12 +46,12 @@ filegroup(
 )
 
 cc_toolchain(
-    name = "bootlin-x86_64",
+    name = "bootlin-k8",
     all_files = ":linux_all_files",
     ar_files = "//tools/x86-64-core-i7--glibc--bleeding-edge-2018.07-1/x86_64-linux:ar",
     as_files = "//tools/x86-64-core-i7--glibc--bleeding-edge-2018.07-1/x86_64-linux:as",
     compiler_files = ":linux_compiler_files",
-    cpu = "x86_64",
+    cpu = "k8",
     dwp_files = ":empty",
     dynamic_runtime_libs = [":empty"],
     linker_files = ":linux_linker_files",
@@ -62,19 +63,13 @@ cc_toolchain(
 )
 
 toolchain(
-    name = "toolchain",
+    name = "cc_toolchain",
     exec_compatible_with = [
-        "@bazel_tools//platforms:linux",
-        "@bazel_tools//platforms:x86_64",
-        "@bazel_tools//tools/cpp:clang"
-        #"//constraints:jessie",
+        "@bazel_tools//platforms:autoconfigured",
     ],
     target_compatible_with = [
-        "@bazel_tools//platforms:linux",
-        "@bazel_tools//platforms:x86_64",
     ],
-    toolchain = ":bootlin-x86_64",
+    toolchain = ":bootlin-k8",
     toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
 )
-
 
